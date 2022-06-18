@@ -60,6 +60,15 @@ public class InversionCountInAnArray {
         return count;
     }
 
+    /**
+     * Uses merge sort technique to optimize this code.
+     * @param A - input list
+     * @return - count of inversion count in array
+     */
+//    private static int optimizedInversionCount(ArrayList<Integer> A) {
+//
+//    }
+
     public static void main(String[] args) {
         int[] A = {3, 2, 1};
         ArrayList<Integer> input = new ArrayList<>();
