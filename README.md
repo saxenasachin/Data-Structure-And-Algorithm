@@ -1,7 +1,7 @@
 <div align="center">
 <h1>Data Structures and Algorithms</h1>
 
-<a href="https://github.com/saxenasachin/Data-Structure-And-Algorithm/tree/master"><img src="https://sloc.xyz/github/thepranaygupta/Data-Structures-and-Algorithms" alt="LOC"/></a>
+<a href="https://github.com/saxenasachin/Data-Structure-And-Algorithm/tree/master"><img src="[https://sloc.xyz/github/thepranaygupta/Data-Structures-and-Algorithms](https://miro.medium.com/max/1400/1*sMryEXZVPKFjGNcfSzE8Mw.jpeg)" alt="LOC"/></a>
 
 <b><i>If you appreciate my work, please</i></b> 🌟 <b><i>this repository. It motivates me. 🚀🚀</i></b>
 
