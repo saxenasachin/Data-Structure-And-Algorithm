@@ -13,8 +13,6 @@ This repository contains all the Data Structures and Algorithms concepts and the
 
 <hr>
 
-[![Stargazers over time](https://starchart.cc/thepranaygupta/Data-Structures-and-Algorithms.svg)](https://starchart.cc/thepranaygupta/Data-Structures-and-Algorithms)
-
 ## Connect with me: [![Email Badge](https://img.shields.io/badge/-Email-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:sachin.saxena1790@gmail.com)](mailto:sachin.saxena1790@gmail.com)
 
 <hr>
