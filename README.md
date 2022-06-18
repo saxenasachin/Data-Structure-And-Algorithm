@@ -5,7 +5,7 @@
 
 </div>
 
-<img width="1188" alt="DSA banner" src="https://user-images.githubusercontent.com/64855541/135758397-513b4edf-a93f-477e-a78e-a80d7265bcd8.png">
+<img width="1188" alt="DSA banner" src="https://miro.medium.com/max/1400/1*sMryEXZVPKFjGNcfSzE8Mw.jpeg">
 
 This repository contains all the Data Structures and Algorithms concepts and their implementation in several ways, programming questions and Interview questions. The main aim of this repository is to help students who are learning Data Structures and Algorithms or preparing for an interview. This contains questions from popular coding platforms including [LeetCode](https://leetcode.com/), [HackerRank](https://www.hackerrank.com/), [Codechef](https://www.codechef.com/), [GeeksforGeeks](https://practice.geeksforgeeks.org/explore/), and many more.
 
