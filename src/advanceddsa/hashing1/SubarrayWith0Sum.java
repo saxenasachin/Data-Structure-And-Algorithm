@@ -1,4 +1,4 @@
-package advanceddsa;
+package advanceddsa.hashing1;
 
 import java.util.*;
 
