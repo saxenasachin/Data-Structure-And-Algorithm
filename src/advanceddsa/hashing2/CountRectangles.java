@@ -80,10 +80,11 @@ public class CountRectangles {
     private static int getCountOfRectangles(ArrayList<Integer> A, ArrayList<Integer> B) {
         // use TreeSet class because it supports non-primitive data types as well, as we need to store (x, y).
         Set<Pair<Integer, Integer>> set = new TreeSet<>((o1, o2) -> {
-            int x1 = o1.getKey();
-            int y1 = o1.getValue();
-            int x2 = o2.getKey();
-            int y2 = o2.getValue();
+            // Override comparator - use sum of (pair.key + pair.value) for comparing
+            int x1 = o1.getKey(); // first key
+            int y1 = o1.getValue(); // first value
+            int x2 = o2.getKey(); // second key
+            int y2 = o2.getValue(); // second value
             return Integer.compare(x1 + y1, x2 + y2);
         });
 
