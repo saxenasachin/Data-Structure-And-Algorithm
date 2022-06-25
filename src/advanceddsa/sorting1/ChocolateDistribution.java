@@ -72,6 +72,7 @@ public class ChocolateDistribution {
      * @return - minimum difference (that can be achieved) between maximum and minimum number of chocolates distributed.
      */
     public static int solve(ArrayList<Integer> A, int B) {
+        if (B == 0 || B > A.size()) return 0; // edge case
         Collections.sort(A);
         int minDifference = Integer.MAX_VALUE;
         int n = A.size();
