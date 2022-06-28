@@ -74,6 +74,7 @@ public class CompareSortedSubarrays {
      * if sum of both subarray are equal then subarray are equal otherwise not.
      * generating large hash value is necessary because [4, 6] == [3, 7].
      * if the length of subarrays are not equal then add 0 in the output and continue to check further.
+     *
      * @param A - input array
      * @param B - number of queries
      * @return - list containing output depict whether subarray are equal or not
@@ -129,6 +130,7 @@ public class CompareSortedSubarrays {
 
     /**
      * generate large hash value for each number in given array
+     *
      * @param A - input array
      * @return - map containing key - element of array, value - large hash value
      */

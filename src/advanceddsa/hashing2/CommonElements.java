@@ -55,7 +55,7 @@ import java.util.*;
  * Explanation 1:
  * <p>
  * Elements (1, 2, 2) appears in both the array. Note 2 appears twice in both the array.
- * Explantion 2:
+ * Explanation 2:
  * <p>
  * Elements (2, 10) appears in both the array.
  */

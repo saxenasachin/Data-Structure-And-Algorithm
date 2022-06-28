@@ -73,7 +73,7 @@ public class ReplicatingSubstring {
     public static int solve(int A, String B) {
         int ans = 1;
         Map<Character, Integer> map = new HashMap<>();
-        for (int i = 0 ; i < B.length(); i++) {
+        for (int i = 0; i < B.length(); i++) {
             map.put(B.charAt(i), map.getOrDefault(B.charAt(i), 0) + 1);
         }
         for (int i = 0; i < B.length(); i++) {
