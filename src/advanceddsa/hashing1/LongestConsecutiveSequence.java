@@ -65,7 +65,7 @@ public class LongestConsecutiveSequence {
      * of array to find of consecutive numbers.
      *
      * @param A - input array
-     * @return - count of longest consecutive numbers
+     * @return - count of the longest consecutive numbers
      */
     private static int countLongestSequence(ArrayList<Integer> A) {
         Set<Integer> set = new HashSet<>();

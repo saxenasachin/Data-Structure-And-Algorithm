@@ -45,7 +45,8 @@ import java.util.ArrayList;
  */
 public class InversionCountInAnArray {
 
-    /** Brute force method
+    /**
+     * Brute force method
      * Check all pairs (i, j) such that A[i] > A[j] and i < j
      */
     private static int inversionCount(ArrayList<Integer> A) {
@@ -60,15 +61,9 @@ public class InversionCountInAnArray {
         return count;
     }
 
-    /**
-     * Uses merge sort technique to optimize this code.
-     * @param A - input list
-     * @return - count of inversion count in array
-     */
 //    private static int optimizedInversionCount(ArrayList<Integer> A) {
 //
 //    }
-
     public static void main(String[] args) {
         int[] A = {3, 2, 1};
         ArrayList<Integer> input = new ArrayList<>();
