@@ -68,18 +68,20 @@ public class InfixToPostfix {
                 if (ch == '(') {
                     stack.push(ch);
                 } else if (ch == ')') {
+                    // pop and append to the output till we find '(' as it has the highest priority
                     while (stack.peek() != '(') {
                         stringBuilder.append(stack.pop());
                     }
-                    stack.pop();
+                    stack.pop(); // finally pop the '('
                 } else {
                     stringBuilder.append(ch);
                 }
             } else { // operator
+                // pop and append until we found more priority operator in the stack and append to the output
                 while (!stack.isEmpty() && getPriority(stack.peek()) >= getPriority(ch)) {
                     stringBuilder.append(stack.pop());
                 }
-                stack.push(ch);
+                stack.push(ch); // push the lesser priority operator
             }
         }
         while (!stack.isEmpty()) {
@@ -93,12 +95,18 @@ public class InfixToPostfix {
         System.out.println(solve(A));
     }
 
+    /**
+     * return the priority of character, if operand found return -1
+     * otherwise priority as given in the question
+     * @param ch - character
+     * @return - integer represents priority
+     */
     private static int getPriority(char ch) {
         return switch (ch) {
             case '+', '-' -> 1;
             case '/', '*' -> 2;
             case '^' -> 3;
-            default -> -1;
+            default -> -1; // for operand
         };
     }
 }
