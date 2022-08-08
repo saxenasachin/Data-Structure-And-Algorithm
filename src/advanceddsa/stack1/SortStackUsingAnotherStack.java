@@ -64,15 +64,11 @@ public class SortStackUsingAnotherStack {
         Stack<Integer> intermediate = new Stack<>();
         while (!stack.isEmpty()) {
             Integer number = stack.pop();
-            if (!intermediate.isEmpty() && intermediate.peek() > number) {
-                while (!intermediate.isEmpty() && intermediate.peek() > number) {
-                    Integer topElement = intermediate.pop();
-                    stack.push(topElement);
-                }
-                intermediate.push(number);
-            } else {
-                intermediate.push(number);
+            while (!intermediate.isEmpty() && intermediate.peek() > number) {
+                Integer topElement = intermediate.pop();
+                stack.push(topElement);
             }
+            intermediate.push(number);
         }
         return new ArrayList<>(intermediate);
     }
