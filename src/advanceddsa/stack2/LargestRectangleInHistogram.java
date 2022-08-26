@@ -60,12 +60,12 @@ import java.util.Stack;
  */
 public class LargestRectangleInHistogram {
 
-    public static int largestRectangleArea(ArrayList<Integer> A) {
+    public static int largestRectangleArea(int[] A) {
         // find nearest smallest index to left
         Stack<Integer> stack = new Stack<>();
-        int[] NSL = new int[A.size()];
-        for (int i = 0; i < A.size(); i++) {
-            while (!stack.isEmpty() && A.get(stack.peek()) >= A.get(i)) {
+        int[] NSL = new int[A.length];
+        for (int i = 0; i < A.length; i++) {
+            while (!stack.isEmpty() && A[stack.peek()] >= A[i]) {
                 stack.pop();
             }
             if (stack.isEmpty()) {
@@ -79,13 +79,13 @@ public class LargestRectangleInHistogram {
         // find nearest smallest index to right
         // clear stack to reuse
         stack.clear();
-        int[] NSR = new int[A.size()];
-        for (int i = A.size() - 1; i >= 0; i--) {
-            while (!stack.isEmpty() && A.get(stack.peek()) >= A.get(i)) {
+        int[] NSR = new int[A.length];
+        for (int i = A.length - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && A[stack.peek()] >= A[i]) {
                 stack.pop();
             }
             if (stack.isEmpty()) {
-                NSR[i] = A.size() - 1;
+                NSR[i] = A.length - 1;
             } else {
                 NSR[i] = stack.peek() - 1;
             }
@@ -94,18 +94,14 @@ public class LargestRectangleInHistogram {
 
         // calculate area
         int maxArea = Integer.MIN_VALUE;
-        for (int i = 0; i < A.size(); i++) {
-            maxArea = Math.max(A.get(i) * (NSR[i] - NSL[i] + 1), maxArea);
+        for (int i = 0; i < A.length; i++) {
+            maxArea = Math.max(A[i] * (NSR[i] - NSL[i] + 1), maxArea);
         }
         return maxArea;
     }
 
     public static void main(String[] args) {
         int[] A = {2, 1, 5, 6, 2, 3};
-        ArrayList<Integer> input = new ArrayList<>();
-        for (int a : A) {
-            input.add(a);
-        }
-        System.out.println(largestRectangleArea(input));
+        System.out.println(largestRectangleArea(A));
     }
 }
