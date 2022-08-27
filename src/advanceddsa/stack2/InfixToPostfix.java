@@ -1,6 +1,5 @@
-package advanceddsa.stack1;
+package advanceddsa.stack2;
 
-import java.util.PriorityQueue;
 import java.util.Stack;
 
 /**
@@ -56,8 +55,8 @@ import java.util.Stack;
  * <p>
  * Output denotes the postfix expression of the given input.
  */
-
 public class InfixToPostfix {
+
     public static String solve(String A) {
         Stack<Character> stack = new Stack<>();
         StringBuilder stringBuilder = new StringBuilder();
@@ -68,20 +67,19 @@ public class InfixToPostfix {
                 if (ch == '(') {
                     stack.push(ch);
                 } else if (ch == ')') {
-                    // pop and append to the output till we find '(' as it has the highest priority
-                    while (stack.peek() != '(') {
+                    while (!stack.isEmpty() && stack.peek() != '(') {
                         stringBuilder.append(stack.pop());
                     }
-                    stack.pop(); // finally pop the '('
+                    stack.pop();
                 } else {
                     stringBuilder.append(ch);
                 }
-            } else { // operator
-                // pop and append until we found more priority operator in the stack and append to the output
-                while (!stack.isEmpty() && getPriority(stack.peek()) >= getPriority(ch)) {
+            } else {
+                // operator
+                while (!stack.isEmpty() && getPriority(stack.peek()) >= priority) {
                     stringBuilder.append(stack.pop());
                 }
-                stack.push(ch); // push the lesser priority operator
+                stack.push(ch);
             }
         }
         while (!stack.isEmpty()) {
@@ -90,23 +88,17 @@ public class InfixToPostfix {
         return stringBuilder.toString();
     }
 
-    public static void main(String[] args) {
-        String A = "q+(c*t)*o+(g*g)+q*(i-a)*p-(i*l)"; // output -  "qct*o*+gg*+qia-*p*+il*-"
-        System.out.println(solve(A));
-    }
-
-    /**
-     * return the priority of character, if operand found return -1
-     * otherwise priority as given in the question
-     * @param ch - character
-     * @return - integer represents priority
-     */
     private static int getPriority(char ch) {
         return switch (ch) {
             case '+', '-' -> 1;
-            case '/', '*' -> 2;
+            case '*', '/' -> 2;
             case '^' -> 3;
-            default -> -1; // for operand
+            default -> -1;
         };
+    }
+
+    public static void main(String[] args) {
+        String A = "x^y/(a*z)+b";
+        System.out.println(solve(A));
     }
 }
