@@ -1,5 +1,7 @@
 package advanceddsa.stack1;
 
+import java.util.Stack;
+
 /**
  * Problem Description
  * Given two strings A and B. Each string represents an expression consisting of lowercase English alphabets, '+', '-', '(' and ')'.
@@ -56,12 +58,80 @@ package advanceddsa.stack1;
  */
 public class CheckTwoBracketExpressions {
 
+    private static final int MAX_CHAR = 26; // as given in question, only lowercase letters
+
     public static int solve(String A, String B) {
-        return 0;
+
+        // evaluate string A
+        boolean[] expressionA = evaluateExpression(A);
+        boolean[] expressionB = evaluateExpression(B);
+        // Now compare two array whether they are equal or not
+
+        // initially consider both are equal
+        int ans = 1; // true
+        for (int i = 0; i < MAX_CHAR; i++) {
+            if (expressionA[i] != expressionB[i]) {
+                ans = 0;
+                break;
+            }
+        }
+
+        return ans;
+    }
+
+    private static boolean[] evaluateExpression(String s) {
+        // stack containing global sign in an expression, as '(' comes, global sign changes based on sign before '('.
+        // if ')' comes, we pops up stack to change global sign.
+        // stack keeps current global sign at top of stack
+        // '+' => true and '-' => false
+        Stack<Boolean> globalSignStack = new Stack<>();
+
+        boolean[] v = new boolean[MAX_CHAR]; // will contain sign of every character in strin as (+1 or -1)
+
+        // global sign is positive initially
+        globalSignStack.push(true);
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            switch (ch) {
+                case '+':
+                case '-':
+                    break;
+                case '(': {
+                    boolean adjSign = adjacentSign(s, i);
+                    if (adjSign) { // '+'
+                        globalSignStack.push(true);
+                    } else { // '-'
+                        globalSignStack.push(!globalSignStack.peek());
+                    }
+                    break;
+                }
+                case ')':
+                    globalSignStack.pop();
+                    break;
+                default: { // normal lowercase characters
+                    boolean adjSign = adjacentSign(s, i);
+                    if (!adjSign) { // if local sign negative, final sign will be !global sign
+                        v[ch - 'a'] = !globalSignStack.peek();
+                    } else { // if local sign positive, final sign will be same as global sign
+                        v[ch - 'a'] = globalSignStack.peek();
+                    }
+                    break;
+                }
+            }
+        }
+        return v;
+    }
+
+    private static boolean adjacentSign(String s, int i) {
+        if (i == 0) return true; // '+' sign
+        // for '-' sign, return false otherwise return true.
+        char ch = s.charAt(i - 1);
+        return ch != '-';
     }
 
     public static void main(String[] args) {
-        String A = "a-b-(c-d)";
+        String A = "a-b-(c+d)";
         String B = "a-b-c-d";
         System.out.println(solve(A, B));
     }
