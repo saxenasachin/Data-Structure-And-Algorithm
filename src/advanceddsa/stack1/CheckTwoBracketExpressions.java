@@ -100,7 +100,7 @@ public class CheckTwoBracketExpressions {
                 case '(': {
                     boolean adjSign = adjacentSign(s, i);
                     if (adjSign) { // '+'
-                        globalSignStack.push(true);
+                        globalSignStack.push(globalSignStack.peek());
                     } else { // '-'
                         globalSignStack.push(!globalSignStack.peek());
                     }
@@ -131,8 +131,8 @@ public class CheckTwoBracketExpressions {
     }
 
     public static void main(String[] args) {
-        String A = "a-b-(c+d)";
-        String B = "a-b-c-d";
+        String A = "-(a+((b-c)-(d+e)))";
+        String B = "-(a+b-c-d-e)";
         System.out.println(solve(A, B));
     }
 }
