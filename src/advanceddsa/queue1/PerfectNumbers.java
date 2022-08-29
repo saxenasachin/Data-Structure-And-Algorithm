@@ -83,7 +83,7 @@ public class PerfectNumbers {
 
         // take out a number from front of queue, add it in series list by appending it with reverse of itself
         // append '1' and '2' with this front value taken out from queue, and again push in the queue.
-        while (!queue.isEmpty()) {
+        while (seriesList.size() < A) {
             String valueAtFront = queue.remove();
 
             StringBuilder firstNumber = new StringBuilder(valueAtFront);
@@ -91,10 +91,6 @@ public class PerfectNumbers {
 
             queue.offer(valueAtFront + "1");
             queue.offer(valueAtFront + "2");
-
-            if (seriesList.size() >= A) {
-                break;
-            }
         }
         return seriesList.get(A - 1);
     }
