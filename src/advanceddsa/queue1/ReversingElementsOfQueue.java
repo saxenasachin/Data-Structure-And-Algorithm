@@ -59,13 +59,17 @@ public class ReversingElementsOfQueue {
 
     public static int[] solve(int[] A, int B) {
 
-        Stack<Integer> stack = new Stack<>();
-        for (int i = 0; i < B; i++) {
-            stack.push(A[i]);
+        Deque<Integer> deque = new ArrayDeque<>(A.length);
+
+        int i;
+        for (i = 0; i < B; i++)
+            deque.addLast(A[i]);
+
+        while (deque.size() > 0) {
+            i--;
+            A[i] = deque.removeFirst();
         }
-        for (int i = 0; i < B; i++) {
-            A[i] = stack.pop();
-        }
+
         return A;
     }
 
