@@ -89,8 +89,8 @@ public class PerfectNumbers {
             StringBuilder firstNumber = new StringBuilder(valueAtFront);
             seriesList.add(firstNumber.toString() + firstNumber.reverse());
 
-            queue.add(valueAtFront + "1");
-            queue.add(valueAtFront + "2");
+            queue.offer(valueAtFront + "1");
+            queue.offer(valueAtFront + "2");
 
             if (seriesList.size() >= A) {
                 break;
