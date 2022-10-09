@@ -1,8 +1,11 @@
 package advanceddsa.hashing2;
 
-import javafx.util.Pair;
 
-import java.util.*;
+import kotlin.Pair;
+
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Problem Description
@@ -81,10 +84,10 @@ public class CountRectangles {
         // use TreeSet class because it supports non-primitive data types as well, as we need to store (x, y).
         Set<Pair<Integer, Integer>> set = new TreeSet<>((o1, o2) -> {
             // Override comparator - use sum of (pair.key + pair.value) for comparing
-            int x1 = o1.getKey(); // first key
-            int y1 = o1.getValue(); // first value
-            int x2 = o2.getKey(); // second key
-            int y2 = o2.getValue(); // second value
+            int x1 = o1.getFirst(); // first key
+            int y1 = o1.getSecond(); // first value
+            int x2 = o2.getFirst(); // second key
+            int y2 = o2.getSecond(); // second value
             return Integer.compare(x1 + y1, x2 + y2);
         });
 
