@@ -1,7 +1,7 @@
 package advanceddsa.trees1;
 
-import javax.swing.tree.TreeNode;
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * Problem Description
@@ -64,20 +64,31 @@ import java.util.ArrayList;
  */
 public class PreorderTraversal {
 
-    public static ArrayList<Integer> preorderTraversal(TreeNode A) {
+    public static ArrayList<Integer> preorderTraversal(advanceddsa.trees1.TreeNode A) {
         ArrayList<Integer> output = new ArrayList<>();
-
+        Stack<advanceddsa.trees1.TreeNode> stack = new Stack<>();
+        stack.push(A);
+        while (!stack.isEmpty()) {
+            advanceddsa.trees1.TreeNode node = stack.pop();
+            output.add(node.val);
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
         return output;
     }
 
     public static void main(String[] args) {
-//        TreeNode treeNode = new TreeNode(1);
-//        TreeNode leftOf1 = new TreeNode(6);
-//        TreeNode rightOf1 = new TreeNode(2);
-//        TreeNode leftOf2 = new TreeNode(3);
-//        treeNode.left = leftOf1;
-//        treeNode.right = rightOf1;
-//        rightOf1.left = leftOf2;
-//        System.out.println(preorderTraversal(treeNode));
+        advanceddsa.trees1.TreeNode treeNode = new advanceddsa.trees1.TreeNode(1);
+        advanceddsa.trees1.TreeNode leftOf1 = new advanceddsa.trees1.TreeNode(6);
+        advanceddsa.trees1.TreeNode rightOf1 = new advanceddsa.trees1.TreeNode(2);
+        advanceddsa.trees1.TreeNode leftOf2 = new TreeNode(3);
+        treeNode.left = leftOf1;
+        treeNode.right = rightOf1;
+        rightOf1.left = leftOf2;
+        System.out.println(preorderTraversal(treeNode));
     }
 }
