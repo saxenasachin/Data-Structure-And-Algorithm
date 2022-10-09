@@ -63,10 +63,10 @@ public class KthSmallestElement {
             int min = Integer.MAX_VALUE;
             for (int j = i; j < n; j++) {
                 // find min element array from i to n and place this element to starting i.e. Selection sort
-               if (list.get(j) < min) {
-                   min = list.get(j);
-                   minIndex = j;
-               }
+                if (list.get(j) < min) {
+                    min = list.get(j);
+                    minIndex = j;
+                }
             }
             if (minIndex != -1) {
                 swap(i, minIndex, list);
