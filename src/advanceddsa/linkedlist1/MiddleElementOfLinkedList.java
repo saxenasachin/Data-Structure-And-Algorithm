@@ -54,7 +54,7 @@ package advanceddsa.linkedlist1;
 public class MiddleElementOfLinkedList {
 
     public static int solve(ListNode A) {
-
+        return 0;
     }
 
     public static void main(String[] args) {
