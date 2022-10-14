@@ -1,4 +1,6 @@
-package advanceddsa.trees1;
+package advanceddsa.tree.trees1;
+
+import advanceddsa.tree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -64,12 +66,12 @@ import java.util.Stack;
  */
 public class PreorderTraversal {
 
-    public static ArrayList<Integer> preorderTraversal(advanceddsa.trees1.TreeNode A) {
+    public static ArrayList<Integer> preorderTraversal(TreeNode A) {
         ArrayList<Integer> output = new ArrayList<>();
-        Stack<advanceddsa.trees1.TreeNode> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         stack.push(A);
         while (!stack.isEmpty()) {
-            advanceddsa.trees1.TreeNode node = stack.pop();
+            TreeNode node = stack.pop();
             output.add(node.val);
             if (node.right != null) {
                 stack.push(node.right);

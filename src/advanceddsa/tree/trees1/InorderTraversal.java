@@ -1,4 +1,6 @@
-package advanceddsa.trees1;
+package advanceddsa.tree.trees1;
+
+import advanceddsa.tree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.Stack;

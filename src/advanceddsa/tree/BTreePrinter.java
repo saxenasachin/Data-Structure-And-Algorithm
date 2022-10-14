@@ -1,10 +1,10 @@
-package advanceddsa.trees1;
+package advanceddsa.tree;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-class BTreePrinter {
+public class BTreePrinter {
 
     public static <T extends Comparable<?>> void printNode(Node<T> root) {
         int maxLevel = BTreePrinter.maxLevel(root);

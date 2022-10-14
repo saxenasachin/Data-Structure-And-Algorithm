@@ -1,11 +1,11 @@
-package advanceddsa.trees1;
+package advanceddsa.tree;
 
 public class TreeNode extends Node<Integer> {
-    int val;
-    TreeNode left;
-    TreeNode right;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
 
-    TreeNode(int x) {
+    public TreeNode(int x) {
         super(x);
         val = x;
         left = null;

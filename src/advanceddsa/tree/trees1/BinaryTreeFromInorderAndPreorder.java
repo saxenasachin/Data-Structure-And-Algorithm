@@ -1,11 +1,13 @@
-package advanceddsa.trees1;
+package advanceddsa.tree.trees1;
+
+import advanceddsa.tree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Problem Description
- * Given the inorder and postorder traversal of a tree, construct the binary tree.
+ * Given preorder and inorder traversal of a tree, construct the binary tree.
  * <p>
  * NOTE: You may assume that duplicates do not exist in the tree.
  * <p>
@@ -17,9 +19,9 @@ import java.util.List;
  * <p>
  * <p>
  * Input Format
- * First argument is an integer array A denoting the inorder traversal of the tree.
+ * First argument is an integer array A denoting the preorder traversal of the tree.
  * <p>
- * Second argument is an integer array B denoting the postorder traversal of the tree.
+ * Second argument is an integer array B denoting the inorder traversal of the tree.
  * <p>
  * <p>
  * <p>
@@ -31,12 +33,12 @@ import java.util.List;
  * Example Input
  * Input 1:
  * <p>
- * A = [2, 1, 3]
- * B = [2, 3, 1]
+ * A = [1, 2, 3]
+ * B = [2, 1, 3]
  * Input 2:
  * <p>
- * A = [6, 1, 3, 2]
- * B = [6, 3, 2, 1]
+ * A = [1, 6, 2, 3]
+ * B = [6, 1, 3, 2]
  * <p>
  * <p>
  * Example Output
@@ -60,28 +62,29 @@ import java.util.List;
  * <p>
  * Create the binary tree and return the root node of the tree.
  */
-public class BinaryTreeFromInorderAndPostorder {
+public class BinaryTreeFromInorderAndPreorder {
 
-    public static TreeNode buildTree(ArrayList<Integer> inorder, ArrayList<Integer> postorder) {
+    public static TreeNode buildTree(ArrayList<Integer> preorder, ArrayList<Integer> inorder) {
 
         if (inorder.size() == 0) return null;
 
-        int rootValue = postorder.get(postorder.size() - 1);
-        int rootNodeIndex = inorder.indexOf(rootValue);
+        int rootValue = preorder.get(0);
+        int rootIndex = inorder.indexOf(rootValue);
+
+        List<Integer> leftNodes = inorder.subList(0, rootIndex);
+        List<Integer> rightNodes = inorder.subList(rootIndex + 1, inorder.size());
 
         TreeNode rootNode = new TreeNode(rootValue);
-        List<Integer> leftNodes = inorder.subList(0, rootNodeIndex);
-        List<Integer> rightNodes = inorder.subList(rootNodeIndex + 1, inorder.size());
 
-        rootNode.left = buildTree(new ArrayList<>(leftNodes), new ArrayList<>(postorder.subList(0, leftNodes.size())));
-        rootNode.right = buildTree(new ArrayList<>(rightNodes), new ArrayList<>(postorder.subList(leftNodes.size(), postorder.size() - 1)));
+        rootNode.left = buildTree(new ArrayList<>(preorder.subList(1, leftNodes.size() + 1)), new ArrayList<>(leftNodes));
+        rootNode.right = buildTree(new ArrayList<>(preorder.subList(leftNodes.size() + 1, preorder.size())), new ArrayList<>(rightNodes));
 
         return rootNode;
     }
 
     public static void main(String[] args) {
-        int[] A = {6, 1, 3, 2};
-        int[] B = {6, 3, 2, 1};
+        int[] A = {1, 6, 2, 3};
+        int[] B = {6, 1, 3, 2};
 
         ArrayList<Integer> listA = new ArrayList<>();
         for (int a : A) {
