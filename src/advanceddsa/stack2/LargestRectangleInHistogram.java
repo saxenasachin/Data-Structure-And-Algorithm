@@ -1,6 +1,5 @@
 package advanceddsa.stack2;
 
-import java.util.ArrayList;
 import java.util.Stack;
 
 /**

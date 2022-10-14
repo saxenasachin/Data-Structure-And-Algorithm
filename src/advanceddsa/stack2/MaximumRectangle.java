@@ -1,8 +1,5 @@
 package advanceddsa.stack2;
 
-import java.util.ArrayList;
-import java.util.Stack;
-
 /**
  * Given a 2D binary matrix of integers A containing 0's and 1's of size N x M.
  * <p>

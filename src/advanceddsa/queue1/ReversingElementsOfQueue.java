@@ -1,6 +1,8 @@
 package advanceddsa.queue1;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Deque;
 
 /**
  * Problem Description
